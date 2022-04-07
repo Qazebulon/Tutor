@@ -183,7 +183,7 @@ def drawError(surface):
 	surface.blit(text, textpos)
 
 def drawFix(surface):
-	text = font.render("Press Delete Key", 0, (255, 0, 0))
+	text = font.render("Press Backspace Key", 0, (255, 0, 0))
 	textpos = text.get_rect(left=92, top=280)
 	surface.blit(text, textpos)
 
@@ -486,7 +486,7 @@ while True:
 		error=False
 		# Continue to display that corrected answer until:
 		keys = pygame.key.get_pressed()
-		if (keys[K_DELETE]):
+		if (keys[K_BACKSPACE]):
 			gameStatus = 1 # problem
 		for event in pygame.event.get():
 			if event.type == QUIT:
