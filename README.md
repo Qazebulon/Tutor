@@ -11,6 +11,10 @@
     sudo apt install python3-pip
     python3 -m pip install -U pygame --user
 
+## Download Tutor
+    
+    git clone https://github.com/Qazebulon/Tutor.git
+
 # Run the program
 
     python2 tutor.py
