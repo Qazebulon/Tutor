@@ -6,6 +6,7 @@
     sudo apt upgrade
     sudo apt install python2.7 python-pip
     python2 -m pip install -U pygame --user
+    sudo apt install git  
     git clone https://github.com/Qazebulon/Tutor.git
 
     -- Optional --
