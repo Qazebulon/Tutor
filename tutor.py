@@ -62,8 +62,8 @@ class GameData:
 		self.berrycount = 0
 		self.segments = 1
 		self.frame = 0
-		bx = random.randint(1, 38)
-		by = random.randint(1, 28)
+		bx = random.randint(3, 36)
+		by = random.randint(3, 26)
 		self.berry = Position(bx, by)
 		self.blocks.append(Position(20,15))
 		self.blocks.append(Position(19,15))
@@ -183,7 +183,7 @@ def drawError(surface):
 	surface.blit(text, textpos)
 
 def drawFix(surface):
-	text = font.render("Press Backspace Key", 0, (255, 0, 0))
+	text = font.render("Press Space Bar", 0, (255, 0, 0))
 	textpos = text.get_rect(left=92, top=280)
 	surface.blit(text, textpos)
 
@@ -279,8 +279,8 @@ def updateGame(gamedata, gameTime):
 		lastIdx = len(gamedata.blocks) - 1
 		for i in range(gamedata.segments):
 			gamedata.blocks.append(Position(gamedata.blocks[lastIdx].x, gamedata.blocks[lastIdx].y))
-		bx = random.randint(1, 38)
-		by = random.randint(1, 28)
+		bx = random.randint(3, 36)
+		by = random.randint(3, 26)
 		gamedata.berry = Position(bx, by)
 		gamedata.berrycount += 1
 		if (gamedata.berrycount == 10):
@@ -336,8 +336,8 @@ gameTime = 0	# (and time)
 while True:
 
 	if (gameStatus == 0): # 0: game
-		x = random.randint(1, 38)
-		y = random.randint(1, 28)
+		x = random.randint(3, 36)
+		y = random.randint(3, 26)
 		rrect = images['berry'].get_rect()
 		rrect.left = data.berry.x * 16
 		rrect.top = data.berry.y * 16
@@ -465,7 +465,7 @@ while True:
 					ans = ans * 10 + 8
 				if ((event.key == pygame.K_9) or (event.key == pygame.K_KP9)):
 					ans = ans * 10 + 9
-
+				ans = ans % 100		# modulo-crop overflow
 		# Do drawing stuff here
 		drawGame(surface,snakemap,data,level,rrect)
 		drawProblem(surface, topNum, botNum, prb, ans)
@@ -486,7 +486,7 @@ while True:
 		error=False
 		# Continue to display that corrected answer until:
 		keys = pygame.key.get_pressed()
-		if (keys[K_BACKSPACE]):
+		if (keys[K_SPACE]):
 			gameStatus = 1 # problem
 		for event in pygame.event.get():
 			if event.type == QUIT:
