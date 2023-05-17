@@ -8,6 +8,11 @@
     python2 -m pip install -U pygame --user
     sudo apt install git  
     git clone https://github.com/Qazebulon/Tutor.git
+    
+## Setup Lancher
+    
+    Create Launcher: Name: Math Command: ./update.sh Working Directory: Run in terminal
+    Desktop Settings: Icons -> Single click to activate items
 
 # Run the program
 
